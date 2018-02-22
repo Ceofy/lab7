@@ -12,6 +12,7 @@
 </head>
 
 <body>
+
 	<div class="container">
 		<div class="jumbotron">
 			<h1>Michael Bernstein</h1>
@@ -19,6 +20,20 @@
 		</div>
 
 		<h4>Projects</h4>
+    {{#if viewAlt}}
+    {{#each projects}}
+      <div class="project" id="{{id}}">
+        <div class="thumbnail">
+          <a href="/project/{{id}}">
+            <img src="images/{{image}}" alt="Lorem Pixel image" class="img-responsive">
+            <h4>{{title}}</h4>
+          </a>
+          <div class="Min!"><button class="likeBtn">Like</button></div>
+          <div class="details"></div>
+      </div>        
+      </div>
+      {{/each}}
+      {{else}}
 		{{#each projects}}
 			<div class="project" id="{{id}}">
 				<div class="thumbnail">
@@ -26,15 +41,27 @@
 						<img src="images/{{image}}" alt="Lorem Pixel image" class="img-responsive">
 						<h4>{{title}}</h4>
 					</a>
-					<div class="likeCtr"><button class="btn btn-default likeBtn">Like</button></div>
+					<div  class="likeCtr"><button class="btn btn-default likeBtn">Like</button></div>
 					<div class="details"></div>
 				</div>
 			</div>
 		{{/each}}
+    {{/if}}
 
 
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
 	<script src="/js/introHCI.js"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114602911-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-114602911-1');
+</script>
+
 </body>
 </html>
